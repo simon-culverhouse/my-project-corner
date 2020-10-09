@@ -1,0 +1,36 @@
+<script>// Script to open and close sidebar
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+    
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+  </script>
+  
+  <script>// cookie consent
+        (function () {
+        if (!localStorage.getItem('cookieconsent')) {
+          document.body.innerHTML += 
+          '\
+          <div class="cookieconsent" style="position:fixed;padding:20px;left:0;bottom:0;background-color:darkslategrey;color:#FFF;text-align:center;width:100%;z-index:99999;">\
+            {{ T "banner" }} \
+              <a href="#" class="w3-button w3-round-xxlarge w3-theme-l5 w3-margin-left w3-animate-zoom"> {{ T "banner_button" }}</a>\
+          </div>\
+          ';
+          document.querySelector('.cookieconsent a').onclick = function (e) {
+            e.preventDefault();
+            document.querySelector('.cookieconsent').style.display = 'none';
+            localStorage.setItem('cookieconsent', true);
+          };
+        }
+      })();
+  </script>
+  <script>
+    var lazyLoadInstance = new LazyLoad({
+      elements_selector: ".lazy"
+      // ... more custom settings?
+    });
+    </script>

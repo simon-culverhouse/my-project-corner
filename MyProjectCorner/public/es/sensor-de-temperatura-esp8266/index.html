@@ -1,0 +1,189 @@
+<!doctype html><html lang=es><head><script async src="https://www.googletagmanager.com/gtag/js?id=UA-140425106-2"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','UA-140425106-2');</script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Sensor de Temperatura ESP8266 | My Project Corner</title><meta name=description content="Un sensor de temperatura portátil construido con una placa de microcontrolador ESP8266 y un sensor impermeable DS18B20. Alojado en una caja impresa&mldr;"><link rel=canonical href=https://myprojectcorner.com/es/sensor-de-temperatura-esp8266/><base href=/es><link rel=stylesheet href=https://myprojectcorner.com/css/styles.min.css><link rel=icon href=media/logo.png type=image/x-icon><script src=js/lazyload.min.js></script><script data-ad-client=ca-pub-1748277873952415 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script></head><body><header><nav class="w3-sidebar w3-bar-block w3-opacity-min w3-theme w3-animate-right w3-top w3-text-theme w3-large" style=z-index:3;width:250px;font-weight:700;display:none;right:0 id=mySidebar><a href=javascript:void(0) onclick=w3_close() class="w3-bar-item w3-button w3-animate-bottom w3-theme-d2 w3-xlarge sc-fade" style=text-align:right title=Cerrar>X</a>
+<a href=/es onclick=w3_close() class="w3-bar-item w3-button w3-center w3-theme-l5 w3-padding-16 sc-fade" style=text-transform:uppercase title="Página Principal">Página Principal</a>
+<a href=/es/projects onclick=w3_close() class="w3-bar-item w3-button w3-center w3-theme-l5 w3-padding-16 sc-fade" style=text-transform:uppercase title=Proyectos>Proyectos</a>
+<a href=/es/categories onclick=w3_close() class="w3-bar-item w3-button w3-center w3-theme-l5 w3-padding-16 sc-fade" style=text-transform:uppercase title=Categorías>Categorías</a>
+<a href=/es/sobre onclick=w3_close() class="w3-bar-item w3-button w3-center w3-theme-l5 w3-padding-16 sc-fade" style=text-transform:uppercase title=Sobre>Sobre</a>
+<a href=/es/contacto onclick=w3_close() class="w3-bar-item w3-button w3-center w3-theme-l5 w3-padding-16 sc-fade" style=text-transform:uppercase title=Contacto>Contacto</a><div class="w3-dropdown-hover w3-bar-item w3-center w3-theme-d5 w3-padding-16 w3-hide-medium w3-hide-large"><span style=padding-right:10px>Español</span><img src=media/world.png style=max-width:24px alt="language selector"></span><div class="w3-bar-block w3-dropdown-content w3-card-4" style=right:0;top:50px><a href=https://myprojectcorner.com/esp8266-temperature-sensor/ class="w3-bar-item w3-button sc-fade" style=text-align:center>English</a>
+<a href=https://myprojectcorner.com/fr/capteur-de-temperature-esp8266/ class="w3-bar-item w3-button sc-fade" style=text-align:center>Français</a></div></div></nav><div class="w3-top w3-theme"><div class=w3-bar><a href=javascript:void(0) class="w3-button w3-right w3-round w3-theme-action w3-xlarge w3-hide-large" onclick=w3_open()>☰</a>
+<a href=index.html class=w3-bar-item><img src=media/logo.png style=max-height:36px alt="my project corner logo"></a>
+<a href=index.html class="w3-bar-item w3-theme sc-header">My Project Corner</a>
+<a href=/es onclick=w3_close() class="w3-bar-item w3-button w3-center w3-theme w3-padding-16 w3-hide-small w3-hide-medium sc-fade" style=text-transform:uppercase title="Página Principal"><span style=color:#2196f3;font-weight:700>| </span>Página Principal</a>
+<a href=/es/projects onclick=w3_close() class="w3-bar-item w3-button w3-center w3-theme w3-padding-16 w3-hide-small w3-hide-medium sc-fade" style=text-transform:uppercase title=Proyectos><span style=color:#2196f3;font-weight:700>| </span>Proyectos</a>
+<a href=/es/categories onclick=w3_close() class="w3-bar-item w3-button w3-center w3-theme w3-padding-16 w3-hide-small w3-hide-medium sc-fade" style=text-transform:uppercase title=Categorías><span style=color:#2196f3;font-weight:700>| </span>Categorías</a>
+<a href=/es/sobre onclick=w3_close() class="w3-bar-item w3-button w3-center w3-theme w3-padding-16 w3-hide-small w3-hide-medium sc-fade" style=text-transform:uppercase title=Sobre><span style=color:#2196f3;font-weight:700>| </span>Sobre</a>
+<a href=/es/contacto onclick=w3_close() class="w3-bar-item w3-button w3-center w3-theme w3-padding-16 w3-hide-small w3-hide-medium sc-fade" style=text-transform:uppercase title=Contacto><span style=color:#2196f3;font-weight:700>| </span>Contacto</a><div class="w3-bar-item w3-dropdown-hover w3-hover-theme w3-right w3-hide-small" style=padding-right:8px;padding-top:7px><button class="w3-bar-item w3-theme">ES <img src=media/world.png style=max-width:18px alt="language selector"></button><div class="w3-dropdown-content w3-theme-l5 w3-bar-block w3-card-4" style=top:52px;right:0><a href=https://myprojectcorner.com/esp8266-temperature-sensor/ class="w3-bar-item w3-button sc-fade" style=text-align:center>English</a>
+<a href=https://myprojectcorner.com/fr/capteur-de-temperature-esp8266/ class="w3-bar-item w3-button sc-fade" style=text-align:center>Français</a></div></div></div></div></header><div class="w3-overlay w3-animate-opacity" onclick=w3_close() style=cursor:pointer title="close side menu" id=myOverlay></div><main class=w3-content id=main><section class="w3-container w3-card-4 w3-theme-title w3-center w3-margin" id=pageheader><h1>Sensor de Temperatura ESP8266</h1><hr class=title><h5>Sensor de temperatura portátil MQTT</h5></section><div class="w3-container sc-section sc-mobile"><div class="w3-container sc-sub-section sc-mobile"><div class="w3-container sc-top-section sc-mobile"><a href=esp8266_temp/esp8266-mqtt01.jpg target=_blank><picture>
+<source type=image/webp data-srcset="esp8266_temp/esp8266-mqtt01.webp 1280w,
+        esp8266_temp/esp8266-mqtt01-960.webp 960w,
+        esp8266_temp/esp8266-mqtt01-640.webp 640w,
+        esp8266_temp/esp8266-mqtt01-320.webp 320w" data-sizes=100w><img alt="Sensor de temperatura portátil usando ESP8266, MQTT y Node red" class="lazy blog-image-padding w3-hover-shadow" data-src=esp8266_temp/esp8266-mqtt01-1280.jpg data-srcset="esp8266_temp/esp8266-mqtt01.jpg 1280w,
+        esp8266_temp/esp8266-mqtt01-960.jpg 960w,
+        esp8266_temp/esp8266-mqtt01-640.jpg 640w,
+        esp8266_temp/esp8266-mqtt01-320.jpg 320w" data-sizes=100w></picture><h5 class=w3-center>Sensor de temperatura portátil usando ESP8266, MQTT y Node red</h5></a></div><div class="w3-container sc-multi-section sc-mobile"><div class="w3-panel w3-card-2 w3-leftbar w3-rightbar sc-quote sc-mobile-quote"><p>Un sensor de temperatura portátil construido con una placa de microcontrolador ESP8266 y un sensor impermeable DS18B20. Alojado en una caja impresa en 3D de mi propio diseño.</p><p>Cuando se enciende, el ESP8266 se conecta primero a Wifi y luego al servidor MQTT en mi Raspberry Pi. Una vez conectado se envía un mensaje a intervalos regulares con la lectura de la temperatura.</p></div></div><div class="w3-container sc-multi-section sc-mobile"><ul class="w3-ul w3-card sc-partlist sc-mobile"><hr><blockquote><h4 id=las-piezas-para-hacer-que-el-sensor-de-temperatura-del-esp8266><em><strong>Las piezas para hacer que el sensor de temperatura del ESP8266</strong></em></h4></blockquote><ul><li>ESP8266 microcontroller</li><li>DS18B20 sensor de temperatura a prueba de agua</li><li>4.7K resistor</li><li>Caja impresa en 3D</li><li>Fuente de alimentación de 5v</li></ul></ul></div><div class="w3-row w3-padding-32 sc-multi-end-section sc-mobile"><div class="w3_container w3-third w3-padding-large sc-padding-lr"><a href=esp8266_temp/esp8266-mqtt02.jpg target=_blank><picture>
+<source type=image/webp data-srcset="esp8266_temp/esp8266-mqtt02.webp 1280w,
+        esp8266_temp/esp8266-mqtt02-960.webp 960w,
+        esp8266_temp/esp8266-mqtt02-640.webp 640w,
+        esp8266_temp/esp8266-mqtt02-320.webp 320w" data-sizes=100w><img alt="La placa ESP8266 para el sensor de temperatura" class="lazy blog-image-padding w3-hover-shadow" data-src=esp8266_temp/esp8266-mqtt02-1280.jpg data-srcset="esp8266_temp/esp8266-mqtt02.jpg 1280w,
+        esp8266_temp/esp8266-mqtt02-960.jpg 960w,
+        esp8266_temp/esp8266-mqtt02-640.jpg 640w,
+        esp8266_temp/esp8266-mqtt02-320.jpg 320w" data-sizes=100w></picture><h5 class=w3-center>Placa ESP8266</h5></a></div><div class="w3_container w3-third w3-padding-large sc-padding-lr"><a href=esp8266_temp/esp8266-mqtt06.jpg target=_blank><picture>
+<source type=image/webp data-srcset="esp8266_temp/esp8266-mqtt06.webp 1280w,
+        esp8266_temp/esp8266-mqtt06-960.webp 960w,
+        esp8266_temp/esp8266-mqtt06-640.webp 640w,
+        esp8266_temp/esp8266-mqtt06-320.webp 320w" data-sizes=100w><img alt="El sensor de temperatura a prueba de agua DS18B20" class="lazy blog-image-padding w3-hover-shadow" data-src=esp8266_temp/esp8266-mqtt06-1280.jpg data-srcset="esp8266_temp/esp8266-mqtt06.jpg 1280w,
+        esp8266_temp/esp8266-mqtt06-960.jpg 960w,
+        esp8266_temp/esp8266-mqtt06-640.jpg 640w,
+        esp8266_temp/esp8266-mqtt06-320.jpg 320w" data-sizes=100w></picture><h5 class=w3-center>El sensor de temperatura a prueba de agua DS18B20</h5></a></div><div class="w3_container w3-third w3-padding-large sc-padding-lr"><a href=esp8266_temp/esp8266-mqtt05.jpg target=_blank><picture>
+<source type=image/webp data-srcset="esp8266_temp/esp8266-mqtt05.webp 1280w,
+        esp8266_temp/esp8266-mqtt05-960.webp 960w,
+        esp8266_temp/esp8266-mqtt05-640.webp 640w,
+        esp8266_temp/esp8266-mqtt05-320.webp 320w" data-sizes=100w><img alt="Un sensor de temperatura portátil ensamblado" class="lazy blog-image-padding w3-hover-shadow" data-src=esp8266_temp/esp8266-mqtt05-1280.jpg data-srcset="esp8266_temp/esp8266-mqtt05.jpg 1280w,
+        esp8266_temp/esp8266-mqtt05-960.jpg 960w,
+        esp8266_temp/esp8266-mqtt05-640.jpg 640w,
+        esp8266_temp/esp8266-mqtt05-320.jpg 320w" data-sizes=100w></picture><h5 class=w3-center>Un sensor de temperatura portátil ensamblado</h5></a></div></div></div></div><div class="w3-container sc-section-ad sc-mobile"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-1748277873952415 data-ad-slot=2611434208 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div><div class="w3-container sc-section sc-mobile"><div class="w3-container sc-header-section sc-mobile sc-padding-lr"><header><h2>Diseño e impresión</h2><hr class=sub><h5>Usando SketchUp y mi impresora 3D</h5></header></div><div class="w3-container sc-sub-section sc-mobile"><div class="w3-row w3-padding-32 sc-top-section sc-mobile"><div class="w3_container w3-half w3-left-align w3-padding-large sc-padding-lr"><p>El diseño de la carcasa de la placa esp8266 fue modelado en SketchUp. He tratado de mantenerlo lo más compacto posible, mientras que aún se deja espacio para el cableado.</p><p>Impreso en PLA con un 20% de relleno y soporte para los recortes.</p><p>Los archivos de diseño e impresión se pueden encontrar en <strong><a style=text-transform:capitalize;color:#2196f3;text-decoration:underline href=https://www.thingiverse.com/thing:4273457>Thingiverse</a></strong></p></div><div class="w3_container w3-half w3-padding-large sc-padding-lr"><a href=esp8266_temp/esp8266-box.jpg target=_blank><picture>
+<source type=image/webp data-srcset="esp8266_temp/esp8266-box.webp 1185w,
+        esp8266_temp/esp8266-box-960.webp 960w,
+        esp8266_temp/esp8266-box-640.webp 640w,
+        esp8266_temp/esp8266-box-320.webp 320w" data-sizes=100w><img alt="Modelo SketchUp de la caja del esp8266" class="lazy blog-image-padding w3-hover-shadow" data-src=esp8266_temp/esp8266-box-1185.jpg data-srcset="esp8266_temp/esp8266-box.jpg 1185w,
+        esp8266_temp/esp8266-box-960.jpg 960w,
+        esp8266_temp/esp8266-box-640.jpg 640w,
+        esp8266_temp/esp8266-box-320.jpg 320w" data-sizes=100w></picture><h5 class=w3-center></h5></a></div></div></div></div><div class="w3-container sc-section sc-mobile"><div class="w3-container sc-header-section sc-mobile sc-padding-lr"><header><h2>Montaje</h2><hr class=sub><h5>Soldando las conexiones</h5></header></div><div class="w3-container sc-sub-section sc-mobile"><div class="w3-container sc-top-section sc-mobile"><a href=esp8266_temp/esp8266-mqtt04.jpg target=_blank><picture>
+<source type=image/webp data-srcset="esp8266_temp/esp8266-mqtt04.webp 1280w,
+        esp8266_temp/esp8266-mqtt04-960.webp 960w,
+        esp8266_temp/esp8266-mqtt04-640.webp 640w,
+        esp8266_temp/esp8266-mqtt04-320.webp 320w" data-sizes=100w><img alt="Soldadura ESP8266 MQTT Sensor de temperatura" class="lazy blog-image-padding w3-hover-shadow" data-src=esp8266_temp/esp8266-mqtt04-1280.jpg data-srcset="esp8266_temp/esp8266-mqtt04.jpg 1280w,
+        esp8266_temp/esp8266-mqtt04-960.jpg 960w,
+        esp8266_temp/esp8266-mqtt04-640.jpg 640w,
+        esp8266_temp/esp8266-mqtt04-320.jpg 320w" data-sizes=100w></picture><h5 class=w3-center></h5></a></div><div class="w3-container sc-multi-section sc-mobile"><div class="w3-container sc-text-block-clear sc-mobile sc-padding-lr"><p>He soldado los cables del DS18B20 directamente a las clavijas del ESP8266 para facilitar la tarea,</p><ol><li>Soldar el cable de alimentación rojo a la clavija de 3,3v al mismo tiempo soldando un extremo de la resistencia a la misma clavija.</li><li>Suelde el cable negro de tierra a la clavija GND.</li><li>Y finalmente, conectar el cable de datos amarillo a D4 (GPIO2), soldando de nuevo la resistencia al mismo tiempo.</li></ol></div></div><div class="w3-container sc-multi-end-section sc-mobile"><div class="w3-panel w3-card-2 w3-leftbar w3-rightbar sc-quote sc-mobile-quote"><p>¡Y eso es todo para la asamblea!</p><p>Añadí un poco de pegamento caliente a las conexiones terminales para el aislamiento y la protección contra la corrosión. Y un toque alrededor del agujero de entrada del cable.</p></div></div></div></div><div class="w3-container sc-section-ad sc-mobile"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-1748277873952415 data-ad-slot=2611434208 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div><div class="w3-container sc-section sc-mobile"><div class="w3-container sc-header-section sc-mobile sc-padding-lr"><header><h2>Etapa final</h2><hr class=sub><h5>Sube el código</h5></header></div><div class="w3-container sc-sub-section sc-mobile"><div class="w3-container sc-top-section sc-mobile"><div class="w3-container sc-text-block-clear sc-mobile sc-padding-lr"><hr><h4 id=añade-el-código-a-la-unidad-terminada><strong>Añade el código a la unidad terminada</strong></h4><p>Copia el código de abajo y pégalo en el IDE de Arduino. Cambie los detalles de la conexión wifi a su propia red wifi. También establezca la dirección IP del Raspberry pi ejecutando el servidor mqtt.</p><p>También necesitará las bibliotecas correspondientes:</p><ul><li>ESP8266 board support library</li><li>Dallas Temperature library</li><li>OneWire library</li><li>Mqtt support library</li></ul><p>Estos pueden ser fácilmente instalados a través de la opción &ldquo;administrar bibliotecas&rdquo; dentro del IDE de Arduino</p></div></div><div class="w3-container sc-multi-section sc-mobile"><div class="w3-container sc-text-block-pi sc-mobile sc-padding-lr"><div class=highlight><pre style=background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#007020>#include</span> <span style=color:#007020>&lt;ESP8266WiFi.h&gt;</span><span style=color:#007020>
+</span><span style=color:#007020>#include</span> <span style=color:#007020>&lt;PubSubClient.h&gt;</span><span style=color:#007020>
+</span><span style=color:#007020>#include</span> <span style=color:#007020>&lt;OneWire.h&gt;</span><span style=color:#007020>
+</span><span style=color:#007020>#include</span> <span style=color:#007020>&lt;DallasTemperature.h&gt;</span><span style=color:#007020>
+</span><span style=color:#007020></span>
+<span style=color:#60a0b0;font-style:italic>// Data wire to pin D4 on the ESP8266 - GPIO 2
+</span><span style=color:#60a0b0;font-style:italic></span><span style=color:#007020>#define ONE_WIRE_BUS 2
+</span><span style=color:#007020></span>
+<span style=color:#60a0b0;font-style:italic>// Setup oneWire
+</span><span style=color:#60a0b0;font-style:italic></span>OneWire <span style=color:#06287e>oneWire</span>(ONE_WIRE_BUS);
+
+<span style=color:#60a0b0;font-style:italic>// Pass our oneWire reference to Dallas Temperature. 
+</span><span style=color:#60a0b0;font-style:italic></span>DallasTemperature <span style=color:#06287e>DS18B20</span>(<span style=color:#666>&amp;</span>oneWire);
+<span style=color:#902000>char</span> temperatureCString[<span style=color:#40a070>7</span>];
+<span style=color:#902000>char</span> temperatureFString[<span style=color:#40a070>7</span>];
+
+<span style=color:#60a0b0;font-style:italic>// Change the credentials below, so your ESP8266 connects to your router
+</span><span style=color:#60a0b0;font-style:italic></span><span style=color:#007020;font-weight:700>const</span> <span style=color:#902000>char</span><span style=color:#666>*</span> ssid <span style=color:#666>=</span> <span style=color:#4070a0>&#34;YOUR WIFI SSID&#34;</span>;
+<span style=color:#007020;font-weight:700>const</span> <span style=color:#902000>char</span><span style=color:#666>*</span> password <span style=color:#666>=</span> <span style=color:#4070a0>&#34;YOUR WIFI PASSWORD&#34;</span>;
+
+<span style=color:#60a0b0;font-style:italic>// Change the variable to your Raspberry Pi IP address, so it connects to your MQTT broker
+</span><span style=color:#60a0b0;font-style:italic></span><span style=color:#007020;font-weight:700>const</span> <span style=color:#902000>char</span><span style=color:#666>*</span> mqtt_server <span style=color:#666>=</span> <span style=color:#4070a0>&#34;YOUR PI IP ADDRESS&#34;</span>;
+
+<span style=color:#60a0b0;font-style:italic>// Initializes the espClient.
+</span><span style=color:#60a0b0;font-style:italic></span>WiFiClient esp_temp_portable;
+PubSubClient <span style=color:#06287e>client</span>(esp_temp_portable);
+
+<span style=color:#60a0b0;font-style:italic>// This connects your ESP8266 to your router
+</span><span style=color:#60a0b0;font-style:italic></span><span style=color:#902000>void</span> <span style=color:#06287e>setup_wifi</span>() {
+  delay(<span style=color:#40a070>10</span>);
+  <span style=color:#60a0b0;font-style:italic>// We start by connecting to a WiFi network
+</span><span style=color:#60a0b0;font-style:italic></span>  Serial.println();
+  Serial.print(<span style=color:#4070a0>&#34;Connecting to &#34;</span>);
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+  <span style=color:#007020;font-weight:700>while</span> (WiFi.status() <span style=color:#666>!=</span> WL_CONNECTED) {
+    delay(<span style=color:#40a070>500</span>);
+    Serial.print(<span style=color:#4070a0>&#34;.&#34;</span>);
+  }
+  Serial.println(<span style=color:#4070a0>&#34;&#34;</span>);
+  Serial.print(<span style=color:#4070a0>&#34;WiFi connected - ESP IP address: &#34;</span>);
+  Serial.println(WiFi.localIP());
+}
+
+<span style=color:#902000>void</span> <span style=color:#06287e>getTemperature</span>() {
+  <span style=color:#902000>float</span> tempC;
+  <span style=color:#902000>float</span> tempF;
+  <span style=color:#007020;font-weight:700>do</span> {
+    DS18B20.requestTemperatures(); 
+    tempC <span style=color:#666>=</span> DS18B20.getTempCByIndex(<span style=color:#40a070>0</span>);
+    dtostrf(tempC, <span style=color:#40a070>2</span>, <span style=color:#40a070>0</span>, temperatureCString);
+    tempF <span style=color:#666>=</span> DS18B20.getTempFByIndex(<span style=color:#40a070>0</span>);
+    dtostrf(tempF, <span style=color:#40a070>3</span>, <span style=color:#40a070>2</span>, temperatureFString);
+    Serial.println(temperatureCString);
+    delay(<span style=color:#40a070>100</span>);
+  } <span style=color:#007020;font-weight:700>while</span> (tempC <span style=color:#666>==</span> <span style=color:#40a070>85.0</span> <span style=color:#666>||</span> tempC <span style=color:#666>==</span> (<span style=color:#666>-</span><span style=color:#40a070>127.0</span>));
+}
+
+<span style=color:#60a0b0;font-style:italic>// This functions reconnects your ESP8266 to your MQTT broker
+</span><span style=color:#60a0b0;font-style:italic></span><span style=color:#902000>void</span> <span style=color:#06287e>reconnect</span>() {
+  <span style=color:#60a0b0;font-style:italic>// Loop until we&#39;re reconnected
+</span><span style=color:#60a0b0;font-style:italic></span>  <span style=color:#007020;font-weight:700>while</span> (<span style=color:#666>!</span>client.connected()) {
+    Serial.print(<span style=color:#4070a0>&#34;Attempting MQTT connection...&#34;</span>);
+    <span style=color:#007020;font-weight:700>if</span> (client.connect(<span style=color:#4070a0>&#34;esp_temp_portable&#34;</span>)) {
+      Serial.println(<span style=color:#4070a0>&#34;connected&#34;</span>);  
+      <span style=color:#60a0b0;font-style:italic>// Subscribe or resubscribe to a topic
+</span><span style=color:#60a0b0;font-style:italic></span>      <span style=color:#60a0b0;font-style:italic>// You can subscribe to more topics (to control more LEDs in this example)
+</span><span style=color:#60a0b0;font-style:italic></span>      client.subscribe(<span style=color:#4070a0>&#34;portable/temp1&#34;</span>);
+    } <span style=color:#007020;font-weight:700>else</span> {
+      Serial.print(<span style=color:#4070a0>&#34;failed, rc=&#34;</span>);
+      Serial.print(client.state());
+      Serial.println(<span style=color:#4070a0>&#34; try again in 5 seconds&#34;</span>);
+      <span style=color:#60a0b0;font-style:italic>// Wait 5 seconds before retrying
+</span><span style=color:#60a0b0;font-style:italic></span>      delay(<span style=color:#40a070>5000</span>);
+    }
+  }
+}
+
+<span style=color:#902000>void</span> <span style=color:#06287e>setup</span>() {
+  Serial.begin(<span style=color:#40a070>115200</span>);
+  setup_wifi();
+  client.setServer(mqtt_server, <span style=color:#40a070>1883</span>);
+  <span style=color:#60a0b0;font-style:italic>//Turn off wifi access point
+</span><span style=color:#60a0b0;font-style:italic></span>  WiFi.mode(WIFI_STA);
+ }
+<span style=color:#60a0b0;font-style:italic>// ensures that you ESP is connected to wifi and mqtt broker
+</span><span style=color:#60a0b0;font-style:italic></span><span style=color:#902000>void</span> <span style=color:#06287e>loop</span>() {
+  <span style=color:#60a0b0;font-style:italic>//connect wifi if not connected
+</span><span style=color:#60a0b0;font-style:italic></span>  <span style=color:#007020;font-weight:700>if</span> (WiFi.status() <span style=color:#666>!=</span> WL_CONNECTED) {
+    delay(<span style=color:#40a070>1</span>);
+    setup_wifi();
+    <span style=color:#007020;font-weight:700>return</span>;
+}
+  <span style=color:#007020;font-weight:700>if</span> (<span style=color:#666>!</span>client.connected()) {
+    reconnect();
+  }
+  <span style=color:#007020;font-weight:700>if</span>(<span style=color:#666>!</span>client.loop())
+    client.connect(<span style=color:#4070a0>&#34;esp_temp_portable&#34;</span>);
+
+  getTemperature();
+  client.publish(<span style=color:#4070a0>&#34;portable/temp1&#34;</span>,temperatureCString);
+  delay(<span style=color:#40a070>10000</span>);
+ }
+</code></pre></div></div></div><div class="w3-container sc-multi-end-section sc-mobile"><div class="w3-panel w3-card-2 w3-leftbar w3-rightbar sc-quote sc-mobile-quote"><p>Sólo queda configurar el flujo de entrada del MQTT en el Nodo Rojo y conectar la unidad.</p></div></div></div></div><div class="w3-container sc-section sc-mobile"><div class="w3-container sc-header-section sc-mobile sc-padding-lr"><header><h2>Un uso para el sensor de temperatura</h2><hr class=sub><h5>Vigilar lo bien que funciona mi pila de abono</h5></header></div><div class="w3-container sc-sub-section sc-mobile"><div class="w3-container sc-top-section sc-mobile"><div class="w3-container sc-text-block-clear sc-mobile sc-padding-lr"><p>Tengo uno de estos pegado a un poste de metal de la cerca eléctrica, lo empujo a la pila de abono y lo enchufo a la batería de carga de un teléfono. Registra la temperatura en el nodo rojo del tablero de mi MQTT habilitado para Raspberry Pi.</p></div></div><div class="w3-row w3-padding-32 sc-multi-section sc-mobile"><div class="w3_container w3-half w3-padding-large sc-padding-lr"><a href=esp8266_temp/compost-temp.jpg target=_blank><picture>
+<source type=image/webp data-srcset="esp8266_temp/compost-temp.webp 1280w,
+        esp8266_temp/compost-temp-960.webp 960w,
+        esp8266_temp/compost-temp-640.webp 640w,
+        esp8266_temp/compost-temp-320.webp 320w" data-sizes=100w><img alt="Midiendo la temperatura del abono con el sensor ESP8266" class="lazy blog-image-padding w3-hover-shadow" data-src=esp8266_temp/compost-temp-1280.jpg data-srcset="esp8266_temp/compost-temp.jpg 1280w,
+        esp8266_temp/compost-temp-960.jpg 960w,
+        esp8266_temp/compost-temp-640.jpg 640w,
+        esp8266_temp/compost-temp-320.jpg 320w" data-sizes=100w></picture><h5 class=w3-center></h5></a></div><div class="w3_container w3-half w3-padding-large sc-padding-lr"><a href=esp8266_temp/compost-temp02.jpg target=_blank><picture>
+<source type=image/webp data-srcset="esp8266_temp/compost-temp02.webp 1280w,
+        esp8266_temp/compost-temp02-960.webp 960w,
+        esp8266_temp/compost-temp02-640.webp 640w,
+        esp8266_temp/compost-temp02-320.webp 320w" data-sizes=100w><img alt="Usando el sensor de temperatura ESP8266 para el abono" class="lazy blog-image-padding w3-hover-shadow" data-src=esp8266_temp/compost-temp02-1280.jpg data-srcset="esp8266_temp/compost-temp02.jpg 1280w,
+        esp8266_temp/compost-temp02-960.jpg 960w,
+        esp8266_temp/compost-temp02-640.jpg 640w,
+        esp8266_temp/compost-temp02-320.jpg 320w" data-sizes=100w></picture><h5 class=w3-center></h5></a></div></div><div class="w3-container sc-multi-section sc-mobile"><div class="w3-container sc-text-block-clear sc-mobile sc-padding-lr"><p>A continuación se muestra una captura de pantalla del Node Red Dashboard. Muestra la lectura del sensor de temperatura ESP8266 y un historial en forma de gráfico.</p></div></div><div class="w3-container sc-multi-section sc-mobile"><a href=esp8266_temp/nodered-compost.jpg target=_blank><picture>
+<source type=image/webp data-srcset="esp8266_temp/nodered-compost.webp 960w,
+        esp8266_temp/nodered-compost-720.webp 720w,
+        esp8266_temp/nodered-compost-480.webp 480w,
+        esp8266_temp/nodered-compost-240.webp 240w" data-sizes=100w><img alt="El tablero Node red para el sensor de temperatura portátil ESP8266" class="lazy blog-image-padding w3-hover-shadow" data-src=esp8266_temp/nodered-compost-960.jpg data-srcset="esp8266_temp/nodered-compost.jpg 960w,
+        esp8266_temp/nodered-compost-720.jpg 720w,
+        esp8266_temp/nodered-compost-480.jpg 480w,
+        esp8266_temp/nodered-compost-240.jpg 240w" data-sizes=100w></picture><h5 class=w3-center></h5></a></div><div class="w3-container sc-multi-end-section sc-mobile"><div class="w3-panel w3-card-2 w3-leftbar w3-rightbar sc-quote sc-mobile-quote"><p>Recientemente he modificado el diseño del sensor de temperatura ESP8266 para añadir un segundo DS18b20. Este se usa para monitorizar la temperatura del agua de entrada/salida de mi sistema de calefacción por suelo radiante.</p></div></div></div></div><div class="w3-container sc-section-ad sc-mobile"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-1748277873952415 data-ad-slot=2611434208 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div></main><footer class="w3-container w3-theme-d2 w3-padding-16 w3-margin-top w3-center w3-card-4" id=myfooter><div><span class="w3-theme-d2 w3-hover-text-theme w3-margin-right" title="Página Principal"><a href=/es>Página Principal</a></span>
+<span class="w3-theme-d2 w3-hover-text-theme w3-margin-right" title="Política de privacidad"><a href=/es/politica-de-privacidad>Política de privacidad</a></span><div class="w3-center sc-padding-lr"><p><span class="w3-theme-d2 w3-hover-text-theme">&copy; 2020<a href=/es/sensor-de-temperatura-esp8266/> My Project Corner</a></span></p></div></footer><script>function w3_open(){document.getElementById("mySidebar").style.display="block";document.getElementById("myOverlay").style.display="block";}
+function w3_close(){document.getElementById("mySidebar").style.display="none";document.getElementById("myOverlay").style.display="none";}</script><script>(function(){if(!localStorage.getItem('cookieconsent')){document.body.innerHTML+='\
+          <div class="cookieconsent" style="position:fixed;padding:20px;left:0;bottom:0;background-color:darkslategrey;color:#FFF;text-align:center;width:100%;z-index:99999;">\
+            Este sitio utiliza cookies. Al continuar usando este sitio web, usted acepta su uso. \
+              <a href="#" class="w3-button w3-round-xxlarge w3-theme-l5 w3-margin-left w3-animate-zoom"> OK</a>\
+          </div>\
+          ';document.querySelector('.cookieconsent a').onclick=function(e){e.preventDefault();document.querySelector('.cookieconsent').style.display='none';localStorage.setItem('cookieconsent',true);};}})();</script><script>var lazyLoadInstance=new LazyLoad({elements_selector:".lazy"});</script></body></html>

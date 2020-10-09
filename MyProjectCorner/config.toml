@@ -1,0 +1,159 @@
+baseURL = "https://myprojectcorner.com/"
+DefaultContentLanguage = "en"
+languageCode = "en"
+title = "My Project Corner"
+theme = "my_theme"
+PygmentsCodeFences = true
+PygmentsStyle = "friendly"
+
+paginate = 6
+
+[permalinks]
+"/projects" = "/:slug"
+
+[languages.en]
+contentDir = "content/english"
+languageName = "English"
+languageCode = "EN"
+weight = 1
+
+[[languages.en.menu.main]]
+name = "close"
+weight = 1
+
+[[languages.en.menu.main]]
+name = "Homepage"
+url = "/"
+weight = 2
+
+[[languages.en.menu.main]]
+name = "Projects"
+url = "/projects"
+weight = 3
+
+[[languages.en.menu.main]]
+name = "Categories"
+url = "/categories/"
+weight = 4
+
+[[languages.en.menu.main]]
+name = "About"
+url = "/about"
+weight = 5
+
+[[languages.en.menu.main]]
+name = "Contact"
+url = "/contact"
+weight = 6
+
+[[languages.en.menu.footer]]
+name = "Homepage"
+url = "/"
+
+[[languages.en.menu.footer]]
+name = "Privacy Policy"
+url = "/privacy-policy" 
+
+
+[languages.fr]
+contentDir = "content/french"
+languageName = "Français"
+weight = 2
+languageCode = "FR"
+
+
+[[languages.fr.menu.main]]
+name = "Fermer"
+weight = 1
+
+[[languages.fr.menu.main]]
+name = "Accueil"
+url = "/fr"
+weight = 2
+
+[[languages.fr.menu.main]]
+name = "Projects"
+url = "/fr/projects"
+weight = 3
+
+[[languages.fr.menu.main]]
+name = "Categories"
+url = "/fr/categories"
+weight = 4
+
+[[languages.fr.menu.main]]
+name = "A propos"
+url = "/fr/a_propos"
+weight = 5
+
+[[languages.fr.menu.main]]
+name = "Contact"
+url = "/fr/contacter"
+weight = 6
+
+[[languages.fr.menu.footer]]
+name = "Page d'accueil"
+url = "/fr"
+
+[[languages.fr.menu.footer]]
+name = "Politique de confidentialité"
+url = "/fr/politique-de-confidentialite"
+
+[languages.es]
+contentDir = "content/spanish"
+languageName = "Español"
+weight = 2
+languageCode = "ES"
+
+[[languages.es.menu.main]]
+name = "Página Principal"
+url = "/es"
+weight = 1
+
+
+
+[[languages.es.menu.main]]
+name = "Cerrar"
+weight = 1
+
+[[languages.es.menu.main]]
+name = "Página Principal"
+url = "/es"
+weight = 2
+
+[[languages.es.menu.main]]
+name = "Proyectos"
+url = "/es/projects"
+weight = 3
+
+[[languages.es.menu.main]]
+name = "Categorías"
+url = "/es/categories"
+weight = 4
+
+[[languages.es.menu.main]]
+name = "Sobre"
+url = "/es/sobre"
+weight = 5
+
+[[languages.es.menu.main]]
+name = "Contacto"
+url = "/es/contacto"
+weight = 6
+
+
+[[languages.es.menu.footer]]
+name = "Página Principal"
+url = "/es"
+weight = 1
+
+[[languages.es.menu.footer]]
+name = "Política de privacidad"
+url = "/es/politica-de-privacidad"
+weight = 2
+
+       
+
+[params]
+    description = "Showing off some of my homemade projects"
+

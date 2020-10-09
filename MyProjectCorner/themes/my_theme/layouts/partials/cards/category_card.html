@@ -1,0 +1,10 @@
+<div class="w3-card-2 w3-hover-shadow w3-margin w3-theme-l5"><a  href="{{ .Permalink }}">   
+    <img src="{{ .Params.image }}" class="lazy blog-image-padding" alt="{{ .Params.alt_txt }}">
+    <div class="w3-container w3-center">
+        <br>
+        <a class=" w3-xlarge" href="{{ .Permalink }}">{{ .Page.Title }}
+        {{ $pageCount := len .Pages }}
+        <p>{{ $pageCount }} post{{ if ne $pageCount 1 }}s{{ end }} </p>
+    </div>
+  </a>
+</div>

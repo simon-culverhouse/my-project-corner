@@ -1,0 +1,33 @@
+{{ define "main" }}
+
+<section class="w3-container w3-card-4 w3-theme-title w3-center w3-margin" id="pageheader">
+    <h1>{{ .Title }}</h1>
+</section>
+
+<div class="w3-container sc-section-ad sc-mobile">
+    {{ if .Site.IsServer }}
+    <div class="w3-center" style="max-width: 100%;min-height: 200px; background-color: coral;padding-top: 0px !important;">Adsense Placeholder</div>
+    {{ else }}
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- horizontalResponsive -->
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-1748277873952415"
+        data-ad-slot="2611434208"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    {{ end }}
+</div>
+
+<div class="w3-row  ">
+    {{ range (.Paginator 3).Pages }}
+    <div class="w3-container w3-third">
+    {{ partial "cards/cards.html" . }}
+    </div>
+    {{ end }}
+</div>
+{{ partial "widgets/pagination.html" . }}
+{{ end }}

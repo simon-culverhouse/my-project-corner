@@ -1,0 +1,20 @@
+<a href="{{ .Get 0}}.jpg" target="_blank">
+    <picture>
+        <source 
+        type="image/webp" 
+        data-srcset="{{ .Get 0}}.webp {{ .Get 1 }}w,
+        {{ .Get 0}}-{{ .Get 2 }}.webp {{ .Get 2 }}w,
+        {{ .Get 0}}-{{ .Get 3 }}.webp {{ .Get 3 }}w,
+        {{ .Get 0}}-{{ .Get 4 }}.webp {{ .Get 4 }}w"
+            data-sizes="100w">
+        <img 
+        alt="{{ .Get 5 }}" 
+        class="lazy blog-image-padding w3-hover-shadow"
+        data-src="{{ .Get 0}}-{{ .Get 1 }}.jpg" 
+        data-srcset="{{ .Get 0}}.jpg {{ .Get 1 }}w,
+        {{ .Get 0}}-{{ .Get 2 }}.jpg {{ .Get 2 }}w,
+        {{ .Get 0}}-{{ .Get 3 }}.jpg {{ .Get 3 }}w,
+        {{ .Get 0}}-{{ .Get 4 }}.jpg {{ .Get 4 }}w"
+            data-sizes="100w">
+    </picture><h5 class="w3-center">{{ .Get 6 }}</h5>
+  </a>  

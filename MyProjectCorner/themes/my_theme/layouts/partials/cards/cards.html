@@ -1,0 +1,32 @@
+{{ $permalink := .Permalink }}
+{{ $imageAlt := .Title }}
+
+<div class="w3-card-1 w3-hover-shadow w3-margin w3-theme-l5 sc-card"><a  href="{{ $permalink }}">
+    {{ with .Params.images }}
+    <img src="{{ index . 0 }}" class="lazy blog-image-padding"  alt="{{ $imageAlt }}">
+    {{ end }}
+    <div class="w3-container">
+      <h3><b>{{ .Title }}</b></h3>
+      <h5>{{ .Params.sub_title }}, <time><h5 class="blogextract">
+        {{ if eq "fr" .Language.Lang }}
+          {{ .Date.Day }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) }}, {{ .Date.Year }}
+        {{ else if eq "es" .Language.Lang }}
+          {{ .Date.Day }} {{ index $.Site.Data.mes (printf "%d" .Date.Month) }}, {{ .Date.Year }}
+        {{ else }}
+          {{ .PublishDate.Format "Jan 2, 2006"}}
+        {{ end }}
+      </h5></time></h5>
+    </div>
+
+    <div class="w3-container w3-padding">
+      <p>{{ .Summary }}</p>
+      <div class="w3-container"></div>
+      
+    </div>
+    <div class="w3-row w3-hide-medium button-position">
+      <div class="w3-col m12 s12">
+          <p><button onclick="window.location.href='{{ $permalink }}'" class="w3-button w3-padding-large w3-border w3-right button-style"><b>{{ .Params.Btn_txt}} »</b></button></p>
+      </div>
+    </div>
+    </a>
+  </div>

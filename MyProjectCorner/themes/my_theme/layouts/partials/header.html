@@ -1,0 +1,55 @@
+
+  
+  <header>
+    <nav class="w3-sidebar w3-bar-block w3-opacity-min w3-theme w3-animate-right w3-top w3-text-theme w3-large"
+      style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
+      {{ range first 1 .Site.Menus.main}}
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-animate-bottom w3-theme-d2 w3-xlarge sc-fade" style="text-align: right;" title="{{ .Name }}" >X</a>
+      {{ end }}
+      {{ range after 1  .Site.Menus.main}}
+      <a href="{{ .URL }}" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-theme-l5 w3-padding-16 sc-fade" style="text-transform: uppercase;" title="{{ .Name }}" >{{ .Name }}</a>
+      {{ end }}
+      <div class="w3-dropdown-hover w3-bar-item w3-center w3-theme-d5 w3-padding-16 w3-hide-medium w3-hide-large">
+        <span style=" padding-right: 10px;" >{{ .Language.LanguageName }}</span><img src="media/world.png" style="max-width: 24px;" alt="language selector"></span>
+        {{ if .IsTranslated }}
+        <div class=" w3-bar-block w3-dropdown-content w3-card-4" style="right:0px; top: 50px;">
+          {{ range .Translations }}
+          <a href="{{ .Permalink }}" class="w3-bar-item w3-button sc-fade" style="text-align: center; ">{{ .Language.LanguageName }}</a>
+          {{ end}}
+        </div>
+        {{ end }}
+      </div>
+      
+    </nav>
+
+      <div class="w3-top w3-theme">
+        <div class="w3-bar">
+          <a href="javascript:void(0)" class="w3-button w3-right w3-round w3-theme-action w3-xlarge w3-hide-large"  onclick="w3_open()">☰</a>
+          <a href="index.html" class="w3-bar-item"><img src="media/logo.png" style="max-height:36px" alt="my project corner logo"></a>
+          <a href="index.html" class="w3-bar-item w3-theme sc-header">{{ .Site.Title }}</a>
+          {{ if not .IsHome }}
+          {{ range after 1  .Site.Menus.main}}
+            <a href="{{ .URL }}" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-theme w3-padding-16 w3-hide-small w3-hide-medium sc-fade" style="text-transform: uppercase;" title="{{ .Name }}" ><span style="color: #2196F3; font-weight: bold;"> | </span>{{ .Name }}</a>
+          {{ end }}
+          {{ end }}
+          {{ if .IsHome }}
+          {{ range after 2  .Site.Menus.main}}
+            <a href="{{ .URL }}" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-theme w3-padding-16 w3-hide-small w3-hide-medium sc-fade" style="text-transform: uppercase;" title="{{ .Name }}" ><span style="color: #2196F3; font-weight: bold;"> | </span>{{ .Name }}</a>
+          {{ end }}
+          {{ end }}
+          <div class="w3-bar-item w3-dropdown-hover w3-hover-theme w3-right w3-hide-small" style="padding-right: 8px; padding-top: 7px;">
+            <button class="w3-bar-item w3-theme">{{ .Language.Params.languageCode }} <img src="media/world.png" style="max-width: 18px;" alt="language selector"></button>
+              {{ if .IsTranslated }}
+              <div class="w3-dropdown-content w3-theme-l5 w3-bar-block w3-card-4" style="top: 52px;right: 0px;">
+                {{ range .Translations }}
+                <a href="{{ .Permalink }}" class="w3-bar-item w3-button sc-fade" style="text-align: center; ">{{ .Language.LanguageName }}</a>
+                {{ end}}
+              </div>
+              {{ end }}
+          </div>
+        </div>
+      </div>
+</header>
+
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+

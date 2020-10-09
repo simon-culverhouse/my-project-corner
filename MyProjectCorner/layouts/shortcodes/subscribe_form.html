@@ -1,0 +1,32 @@
+<script type="text/javascript">var submitted=false;</script>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+onload="if(submitted) {myFunction()}"></iframe>
+
+
+<form  action="https://docs.google.com/forms/d/e/1FAIpQLSc5MoaNe6RFmEPCmTU7rbvROsBhUe8Dx9p7rCPgxdUBufVAKw/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;">
+    <div class = "w3-card w3-margin">
+        <div class="w3-container w3-padding w3-theme-highlight">
+            <h4 class="w3-wide w3-xlarge">{{ .Get 0 }}</h4>
+          </div>
+        <div class="w3-container w3-padding w3-theme-l5">
+        
+        <label class = "w3-label w3-center">{{ T "newsletter_text1" }}</label>
+        <br>
+        <br>
+
+        <input class = "w3-input w3-border w3-round-large" type="email" placeholder='{{ T "email" }}' title='{{ T "email" }}' name="entry.1045781291" required>
+        <br>
+        <button class="w3-button w3-theme-highlight w3-border w3-round-large w3-right animate-fading" title='{{ T "register" }}' type="submit">{{ T "register" }}</button>
+       
+    </div>  
+    </div>
+    <div class="w3-large" id="snackbar">Thank you for subscribing</div>
+</form>
+
+<script>
+    function myFunction() {
+      var x = document.getElementById("snackbar");
+      x.className = "show";
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+</script>

@@ -1,0 +1,22 @@
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140425106-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-140425106-2');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{{ if not .IsHome }}{{ with .Title }}{{ . }} | {{ end }}{{ end }}{{ .Site.Title }}</title>
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{end }}{{ end }} ">
+    <link rel="canonical" href="{{ .Permalink }}">
+    <base href="{{ .Site.BaseURL | relLangURL }}">
+    {{ $styles := resources.Get "css/styles.css" | resources.Minify }}
+    <link rel="stylesheet" href='{{ $styles.Permalink }}'>
+    <link rel="icon" href="media/logo.png" type="image/x-icon">
+    <script src="js/lazyload.min.js"></script>
+    <script data-ad-client="ca-pub-1748277873952415" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>

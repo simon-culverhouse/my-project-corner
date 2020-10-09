@@ -1,0 +1,36 @@
+[banner]
+other = "Ce site utilise des cookies. En continuant à utiliser ce site, vous acceptez leur utilisation."
+
+[banner_button]
+other = "OK"
+
+[3d_printing]
+other = "Impression 3d"
+
+[name]
+other = "Nom"
+
+[required]
+other = "Tous les champs sont obligatoires"
+
+[email]
+other = "Adresse e-mail"
+
+[newsletter_text1]
+other = "Abonnez-vous et ne manquez jamais les mises à jour et les nouveaux projets"
+
+
+[comment]
+other = "Commentaire"
+
+[submit]
+other = "Soumettre"
+
+[register]
+other = "S'inscrire"
+
+[first_name]
+other = "Prénom"
+
+[last_name]
+other = "Nom"

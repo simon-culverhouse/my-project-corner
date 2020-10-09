@@ -1,0 +1,19 @@
+<div class="w3-container w3-margin" style="background-color: lightslategray !important;margin-top: 16px !important; padding: 0px;">
+
+    {{ if .Site.IsServer }}
+    <div class="w3-center" style="max-width: 100%;min-height: 200px; background-color: coral;padding-top: 0px !important;">Adsense Placeholder</div>
+    {{ else }}
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- sqNew -->
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-1748277873952415"
+        data-ad-slot="9871602157"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    {{ end }}
+</div>

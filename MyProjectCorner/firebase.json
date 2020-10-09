@@ -1,0 +1,33 @@
+{
+  "hosting": {
+
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "redirects": [{
+      "source": "/arduino-laser-bird-deterrent{,/**}",
+      "destination": "/automated-laser-bird-scare",
+      "type": 301
+    }, {
+      "source": "/automated-laser-bird-scare{,/**}",
+      "destination": "/automated-laser-bird-scare",
+      "type": 301
+    }, {
+      "source": "//rocket-stove-arduino-servo/{,/**}",
+      "destination": "/pellet-rocket-stove",
+      "type": 301
+    }, {
+      "source": "/automated-laser-bird-scare{,/**}",
+      "destination": "/automated-laser-bird-scare",
+      "type": 301
+    }, {
+      "source": "/fr/capteur-de-temperature-et-dhumidite-connecte{,/**}",
+      "destination": "/fr/capteur-de-temperature-et-humidite-connecte",
+      "type": 301
+    }]
+
+  }
+}

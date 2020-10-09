@@ -1,0 +1,29 @@
+<script type="text/javascript">var submitted=false;</script>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+onload="if(submitted) {myFunction();}" ></iframe>
+
+
+<form  action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSf4zEt4MMcHFkMmSuanaLCB9VpWCcoPZw5Q_4jUV7Uon14HuA/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;">
+    <div class = "w3-panel w3-card-4 w3-round-xlarge w3-theme-highlight w3-padding-32" style="max-width: 600px; margin: 0 auto;">
+        <label class = "w3-label w3-left">{{ T "name" }}</label><label class = "w3-label w3-right">{{ T "required" }}</label>
+        <input class = "w3-input w3-border w3-round-large" type="text" placeholder='{{ T "name" }}' title='{{ T "name" }}' name="entry.2005620554" required>
+        <br>
+        <label class = "w3-label w3-left">{{ T "email" }}</label>
+        <input class = "w3-input w3-border w3-round-large" type="email" placeholder='{{ T "email" }}' title='{{ T "email" }}' name="entry.1045781291" required>
+        <br>
+        <label class = "w3-label w3-left">{{ T "comment" }}</label>
+        <textarea class = "w3-input w3-border w3-round-large" rows="5" placeholder='{{ T "comment" }}' title='{{ T "comment" }}' name="entry.839337160" required></textarea>
+        <br>
+        <button class="w3-button w3-theme-action w3-round-large" type="submit" title='{{ T "submit" }}'>{{ T "submit" }}</button>
+    </div>
+
+    <div class="w3-large" id="snackbar">Thank you for your comment</div>
+</form>
+
+<script>
+    function myFunction() {
+      var x = document.getElementById("snackbar");
+      x.className = "show";
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+</script>
